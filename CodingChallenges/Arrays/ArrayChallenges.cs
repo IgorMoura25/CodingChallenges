@@ -3,6 +3,15 @@
     public class ArrayChallenges
     {
         // Given two sorted arrays, merge them as the result of the merge is also ordered
+        public static void CallMergeSortedArrays()
+        {
+            var result = MergeSortedArrays(new int[] { 0, 3, 4, 31 }, new int[] { 4, 6, 30, 31, 32, 33, 35 });
+
+            foreach (var item in result)
+            {
+                Console.WriteLine(item);
+            }
+        }
         public static int[] MergeSortedArrays(int[] firstArray, int[] secondArray)
         {
             #region Explanation
@@ -111,6 +120,60 @@
             }
 
             return resultArray;
+        }
+
+        // Given a 6x6 2D Array, return the higher sum of hourglasses
+        public static void CallHigherSumOfHourGlasses()
+        {
+            var dimensionalArray = new List<List<int>>()
+        {
+            new List<int>() { -9, -9, -9,  1, 1, 1 },
+            new List<int>() { 0, -9, 0,  4, 3, 2 },
+            new List<int>() { -9, - 9, - 9,  1, 2, 3 },
+            new List<int>() {  0,  0,  8,  6, 6, 0 },
+            new List<int>() { 0,  0,  0, - 2, 0, 0 },
+            new List<int>() { 0,  0,  1 , 2 ,4 ,0 }
+        };
+
+            Console.WriteLine(HigherSumOfHourGlasses(dimensionalArray));
+        }
+        public static int HigherSumOfHourGlasses(List<List<int>> arr)
+        {
+            var rowIndex = 0;
+            var columnIndex = 0;
+            var iteration = 1;
+
+            var resultSum = 0;
+
+            for (var i = 0; i < 16; i++)
+            {
+                var sum = arr.ElementAt(rowIndex).ElementAt(columnIndex) +
+                      arr.ElementAt(rowIndex).ElementAt(columnIndex + 1) +
+                      arr.ElementAt(rowIndex).ElementAt(columnIndex + 2) +
+
+                      arr.ElementAt(rowIndex + 1).ElementAt(columnIndex + 1) +
+
+                      arr.ElementAt(rowIndex + 2).ElementAt(columnIndex) +
+                      arr.ElementAt(rowIndex + 2).ElementAt(columnIndex + 1) +
+                      arr.ElementAt(rowIndex + 2).ElementAt(columnIndex + 2);
+
+                if (i == 0 || resultSum < sum)
+                {
+                    resultSum = sum;
+                }
+
+                columnIndex++;
+                iteration++;
+
+                if (iteration > 4)
+                {
+                    iteration = 1;
+                    rowIndex++;
+                    columnIndex = 0;
+                }
+            }
+
+            return resultSum;
         }
     }
 }
