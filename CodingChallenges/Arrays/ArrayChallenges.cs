@@ -175,5 +175,38 @@
 
             return resultSum;
         }
+
+        public static void CallDiagonalDifference()
+        {
+            var dimensionalArray = new List<List<int>>()
+            {
+                new List<int>() {   1,   2,   3,   4,  5 },
+                new List<int>() {   7,   8,   9,  18, 11 },
+                new List<int>() {  13,  14,  200,  16, 17 },
+                new List<int>() {  19,  20,  21,  22, 23 },
+                new List<int>() {  25,  26,  27,  28, 29 }
+            };
+
+            Console.WriteLine(DiagonalDifference(dimensionalArray));
+        }
+        public static int DiagonalDifference(List<List<int>> arr)
+        {
+            var leftToRightSum = 0;
+            var rightToLeftSum = 0;
+
+            for (var i = 0; i < arr.Count; i++)
+            {
+                leftToRightSum += arr.ElementAt(i).ElementAt(i);
+            }
+
+            var index = 0;
+            for (var i = arr.Count; i > 0; i--)
+            {
+                rightToLeftSum += arr.ElementAt(index).ElementAt(i - 1);
+                index++;
+            }
+
+            return Math.Abs(leftToRightSum - rightToLeftSum);
+        }
     }
 }
