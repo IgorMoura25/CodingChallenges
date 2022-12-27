@@ -208,5 +208,104 @@
 
             return Math.Abs(leftToRightSum - rightToLeftSum);
         }
+
+        public static void Staircase(int n)
+        {
+            var result = string.Empty;
+
+            for (var i = 1; i <= n; i++)
+            {
+                for (var j = n; j > 0; j--)
+                {
+                    if (j <= i)
+                    {
+                        result += "#";
+                    }
+                    else
+                    {
+                        result += " ";
+                    }
+
+                    if (j == 1)
+                    {
+                        result += "\r\n";
+                        break;
+                    }
+                }
+            }
+
+            Console.WriteLine(result);
+        }
+
+        public static void CallMiniMaxSum()
+        {
+            MiniMaxSum(new List<int>() { 1, 2, 3, 4, 5 });
+        }
+        public static void MiniMaxSum(List<int> arr)
+        {
+            long? maxSum = null;
+            long? minSum = null;
+
+            for (var i = 0; i < arr.Count; i++)
+            {
+                long controlSum = 0;
+
+                for (var j = 0; j < arr.Count; j++)
+                {
+                    if (j == i)
+                    {
+                        continue;
+                    }
+
+                    controlSum += arr[j];
+                }
+
+                if (maxSum == null)
+                {
+                    maxSum = controlSum;
+                }
+
+                if (minSum == null)
+                {
+                    minSum = controlSum;
+                }
+
+                if (maxSum < controlSum)
+                {
+                    maxSum = controlSum;
+                }
+
+                if (minSum > controlSum)
+                {
+                    minSum = controlSum;
+                }
+            }
+
+            Console.WriteLine($"{minSum} {maxSum}");
+        }
+
+
+        public static void CallBirthdayCakeCandles()
+        {
+            Console.WriteLine(BirthdayCakeCandles(new List<int>() { 44, 53, 31, 27, 77, 60, 66, 77, 26, 36 }));
+        }
+        public static int BirthdayCakeCandles(List<int> candles)
+        {
+            var countCandles = 0;
+            var maxCandleValue = 0;
+
+            foreach (var candle in candles)
+            {
+                if (candle >= maxCandleValue)
+                {
+                    if (candle != maxCandleValue) countCandles = 0;
+
+                    maxCandleValue = candle;
+                    countCandles++;
+                }
+            }
+
+            return countCandles;
+        }
     }
 }
