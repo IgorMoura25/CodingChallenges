@@ -1,4 +1,5 @@
-﻿using CodingChallenges.Arrays;
+﻿using CodingChallenges.Algorithms;
+using CodingChallenges.Arrays;
 using CodingChallenges.Graphs;
 using CodingChallenges.Trees;
 
@@ -14,5 +15,8 @@ ArrayChallenges.CallBirthdayCakeCandles();
 TreesChallenges.RunBinarySearchTree();
 
 GraphsChallenges.RunGraphs();
+
+var teste = Algorithms.GetValueOfFibonacciByIndex(6);
+var teste2 = Algorithms.GetValueOfFibonacciByIndexIterative(6);
 
 Console.ReadKey();
