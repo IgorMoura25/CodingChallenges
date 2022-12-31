@@ -20,5 +20,6 @@ var teste = RecursionAlgorithms.GetValueOfFibonacciByIndex(6);
 var teste2 = RecursionAlgorithms.GetValueOfFibonacciByIndexIterative(6);
 
 SortingAlgorithms.CallBubbleSort();
+SortingAlgorithms.CallMergeSort();
 
 Console.ReadKey();
