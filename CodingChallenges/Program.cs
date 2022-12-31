@@ -16,7 +16,9 @@ TreesChallenges.RunBinarySearchTree();
 
 GraphsChallenges.RunGraphs();
 
-var teste = Algorithms.GetValueOfFibonacciByIndex(6);
-var teste2 = Algorithms.GetValueOfFibonacciByIndexIterative(6);
+var teste = RecursionAlgorithms.GetValueOfFibonacciByIndex(6);
+var teste2 = RecursionAlgorithms.GetValueOfFibonacciByIndexIterative(6);
+
+SortingAlgorithms.CallBubbleSort();
 
 Console.ReadKey();
