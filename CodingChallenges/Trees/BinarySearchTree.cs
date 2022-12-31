@@ -1,4 +1,4 @@
-﻿namespace CodingChallenges.Trees.BinarySearchTree
+﻿namespace CodingChallenges.Trees
 {
     public class BinarySearchTree
     {
