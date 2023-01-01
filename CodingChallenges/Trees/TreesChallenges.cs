@@ -18,6 +18,8 @@
             var lookup2 = tree.Lookup(9);
             var lookup3 = tree.Lookup(170);
             var lookup4 = tree.Lookup(50);
+
+            var teste = tree.BreadthFirstSearch();
         }
     }
 }

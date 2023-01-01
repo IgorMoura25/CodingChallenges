@@ -76,11 +76,33 @@
         {
 
         }
+
+        public List<int> BreadthFirstSearch()
+        {
+            var result = new List<int>();
+            var queue = new Queue<Node>();
+
+            if (Root == null) return result;
+
+            queue.Enqueue(Root);
+
+            while (queue.Count > 0)
+            {
+                var currentNode = queue.Dequeue();
+
+                if (currentNode.Left != null) queue.Enqueue(currentNode.Left);
+                if (currentNode.Right != null) queue.Enqueue(currentNode.Right);
+
+                result.Add(currentNode.Value);
+            }
+
+            return result;
+        }
     }
 
     public class Node
     {
-        public int? Value { get; }
+        public int Value { get; }
         public Node? Left { get; set; }
         public Node? Right { get; set; }
 
