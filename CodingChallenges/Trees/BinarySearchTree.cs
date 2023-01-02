@@ -98,6 +98,86 @@
 
             return result;
         }
+
+        public List<int> DepthFirstSearchInOrderRecursive(Node node, List<int> result)
+        {
+            if (node.Left != null)
+            {
+                DepthFirstSearchInOrderRecursive(node.Left, result);
+            }
+
+            result.Add(node.Value);
+
+            if (node.Right != null)
+            {
+                DepthFirstSearchInOrderRecursive(node.Right, result);
+            }
+
+            return result;
+        }
+
+        public List<int> DepthFirstSearchPreOrderRecursive(Node node, List<int> result)
+        {
+            result.Add(node.Value);
+
+            if (node.Left != null)
+            {
+                DepthFirstSearchPreOrderRecursive(node.Left, result);
+            }
+
+            if (node.Right != null)
+            {
+                DepthFirstSearchPreOrderRecursive(node.Right, result);
+            }
+
+            return result;
+        }
+
+        public List<int> DepthFirstSearchPreOrderIterative()
+        {
+            var result = new List<int>();
+            var stack = new Stack<Node>();
+
+            if (Root == null) return result;
+
+            var currentNode = Root;
+
+            while (true)
+            {
+                result.Add(currentNode.Value);
+
+                if (currentNode.Right != null) stack.Push(currentNode.Right);
+
+                if (currentNode.Left != null)
+                {
+                    currentNode = currentNode.Left;
+                    continue;
+                }
+
+                if (stack.Count == 0) break;
+
+                currentNode = stack.Pop();
+            }
+
+            return result;
+        }
+
+        public List<int> DepthFirstSearchPostOrderRecursive(Node node, List<int> result)
+        {
+            if (node.Left != null)
+            {
+                DepthFirstSearchInOrderRecursive(node.Left, result);
+            }
+
+            if (node.Right != null)
+            {
+                DepthFirstSearchInOrderRecursive(node.Right, result);
+            }
+
+            result.Add(node.Value);
+
+            return result;
+        }
     }
 
     public class Node

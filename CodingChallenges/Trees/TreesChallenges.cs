@@ -20,6 +20,13 @@
             var lookup4 = tree.Lookup(50);
 
             var teste = tree.BreadthFirstSearch();
+
+            var teste1 = tree.DepthFirstSearchInOrderRecursive(tree.Root, new List<int>());
+
+            var teste2 = tree.DepthFirstSearchPreOrderIterative();
+            var teste3 = tree.DepthFirstSearchPreOrderRecursive(tree.Root, new List<int>());
+
+            var teste4 = tree.DepthFirstSearchPostOrderRecursive(tree.Root, new List<int>());
         }
     }
 }
