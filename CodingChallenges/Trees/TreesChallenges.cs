@@ -26,7 +26,29 @@
             var teste2 = tree.DepthFirstSearchPreOrderIterative();
             var teste3 = tree.DepthFirstSearchPreOrderRecursive(tree.Root, new List<int>());
 
-            var teste4 = tree.DepthFirstSearchPostOrderRecursive(tree.Root, new List<int>());
+            var tree2 = new BinarySearchTree();
+
+            tree2.Root = new Node(32)
+            {
+                Left = new Node(26)
+                {
+                    Left = new Node(19)
+                    {
+                        Left = null,
+                        Right = new Node(27)
+                    },
+                    Right = null
+                },
+                Right = new Node(47)
+                {
+                    Left = null,
+                    Right = new Node(56)
+                }
+            };
+
+            var teste4 = tree2.ValidateBST(tree.Root, tree.Root.Value, null);
+
+            var teste5 = tree.Iterations;
         }
     }
 }

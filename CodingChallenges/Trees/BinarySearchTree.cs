@@ -2,6 +2,8 @@
 {
     public class BinarySearchTree
     {
+        public int Iterations { get; private set; } = 0;
+
         public Node? Root { get; set; }
 
         public void Insert(int value)
@@ -178,11 +180,48 @@
 
             return result;
         }
+
+        public bool ValidateBST(Node currentNode, int rootValue, bool? isLeftFromRoot = null)
+        {
+            Iterations++;
+
+            // Depth First Search PreOrder Recursive O(n)
+
+            if (isLeftFromRoot != null)
+            {
+                if (isLeftFromRoot.Value && currentNode?.Value >= rootValue) return false;
+            }
+
+            if (isLeftFromRoot != null)
+            {
+                if (!isLeftFromRoot.Value && currentNode?.Value <= rootValue) return false;
+            }
+
+            if (currentNode?.Left?.Value >= currentNode?.Value) return false;
+            if (currentNode?.Right?.Value <= currentNode?.Value) return false;
+
+            var a = true;
+            var b = true;
+
+            if (currentNode?.Left != null)
+            {
+                var isStillLeftFromRoot = isLeftFromRoot == null ? true : isLeftFromRoot;
+                a = ValidateBST(currentNode.Left, rootValue, isStillLeftFromRoot);
+            }
+
+            if (currentNode?.Right != null)
+            {
+                var isStillLeftFromRoot = isLeftFromRoot == null ? false : isLeftFromRoot;
+                b = ValidateBST(currentNode.Right, rootValue, isStillLeftFromRoot);
+            }
+
+            return a && b;
+        }
     }
 
     public class Node
     {
-        public int Value { get; }
+        public int Value { get; set; }
         public Node? Left { get; set; }
         public Node? Right { get; set; }
 
