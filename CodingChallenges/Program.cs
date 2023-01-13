@@ -1,4 +1,5 @@
-﻿using CodingChallenges.Algorithms;
+﻿using CodingChallenges;
+using CodingChallenges.Algorithms;
 using CodingChallenges.Arrays;
 using CodingChallenges.Graphs;
 using CodingChallenges.Trees;
@@ -27,5 +28,7 @@ var teste3Iterations = RecursionAlgorithms.Iterations;
 
 SortingAlgorithms.CallBubbleSort();
 SortingAlgorithms.CallMergeSort();
+
+var result = Challenges.TwoSum(new int[] { 3, 2, 4 }, 6);
 
 Console.ReadKey();
